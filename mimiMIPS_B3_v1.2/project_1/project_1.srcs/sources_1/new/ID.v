@@ -26,8 +26,8 @@ module ID
     output reg  [ 4: 0] r2addr,     // default rt
     input  wire [31: 0] r2data,
 
-    output wire [31: 0] opr1,       // operator 1
-    output wire [31: 0] opr2,       // operator 2
+    output reg [31: 0] opr1,       // operator 1
+    output reg [31: 0] opr2,       // operator 2
     output reg  [ 3: 0] aluop,      // alu type
     output wire [31: 0] offset,
     output reg          wreg,       // 写使能
@@ -39,7 +39,16 @@ module ID
     output wire         stallreq,    // use to requre the pipeline stall, you can use it
     
     output reg r1read, // 寄存器1读使能
-    output reg r2read
+    output reg r2read,
+    
+    //ex阶段推过来饿数据
+    input wire ex_wreg_i, //处于执行阶段的指令是否要写目的寄存器
+    input wire [ 4: 0] ex_wd_i, //处于执行阶段的指令要写的目的寄存器地址
+    input wire [31: 0] ex_wdata_i, //处于执行阶段的指令要写入目的寄存器的数据
+    //men阶段推过来的数据
+    input wire mem_wreg_i, //处于执行阶段的指令是否要写目的寄存器
+    input wire [ 4: 0] mem_wd_i, //处于执行阶段的指令要写的目的寄存器地址
+    input wire [31: 0] mem_wdata_i //处于执行阶段的指令要写入目的寄存器的数据
 );
 
     wire [ 5: 0] opcode    = inst[31:26];
@@ -65,8 +74,48 @@ module ID
 //    reg          r2read;
 
     assign offset = sign_ext;
-    assign opr1 = r1read ? r1data : ext_imme; // 若读使能，则操作数为寄存器1的数据，否则为立即数
-    assign opr2 = r2read ? r2data : ext_imme;
+//    assign opr1 = r1read ? r1data : ext_imme; // 若读使能，则操作数为寄存器1的数据，否则为立即数
+//    assign opr2 = r2read ? r2data : ext_imme;
+
+// 读端口1
+// 对ID/EX模块输出的数据在之前的基础上增加了两种情况：
+	always @ (*) begin
+        // 如果（前面的指令）EX阶段要写入的寄存器的地址 == （后面的指令）ID阶段要读取的寄存器的地址
+		if((r1read == 1'b1) && (ex_wreg_i == 1'b1) 
+								&& (ex_wd_i == r1addr)) begin
+			opr1 <= ex_wdata_i; 
+            // 如果（前面的指令）MEM阶段要写入的寄存器的地址 == （后面的指令）ID阶段要读取的寄存器的地址
+		end else if((r1read == 1'b1) && (mem_wreg_i == 1'b1) 
+								&& (mem_wd_i == r1addr)) begin
+			opr1 <= mem_wdata_i; 			
+	  end else if(r1read == 1'b1) begin
+	  	opr1 <= r1data;
+	  end else if(r1read == 1'b0) begin
+	  	opr1 <= ext_imme;
+	  end else begin
+	    opr1 <= 32'b0;
+	  end
+	end
+	
+// 读端口2
+// 对ID/EX模块输出的数据在之前的基础上增加了两种情况：
+    always @ (*) begin
+        // 如果（前面的指令）EX阶段要写入的寄存器的地址 == （后面的指令）ID阶段要读取的寄存器的地址
+        if((r2read == 1'b1) && (ex_wreg_i == 1'b1) 
+                                && (ex_wd_i == r2addr)) begin
+            opr2 <= ex_wdata_i; 
+            // 如果（前面的指令）MEM阶段要写入的寄存器的地址 == （后面的指令）ID阶段要读取的寄存器的地址
+        end else if((r2read == 1'b1) && (mem_wreg_i == 1'b1) 
+                                && (mem_wd_i == r2addr)) begin
+            opr2 <= mem_wdata_i;             
+      end else if(r2read == 1'b1) begin
+          opr2 <= r2data;
+      end else if(r2read == 1'b0) begin
+          opr2 <= ext_imme;
+      end else begin
+        opr2 <= 32'b0;
+      end
+    end
 
     always @(*) begin
         aluop     <= `ALU_NOP;
