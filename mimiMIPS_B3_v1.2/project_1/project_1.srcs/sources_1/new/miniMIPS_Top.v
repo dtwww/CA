@@ -41,6 +41,9 @@ module miniMIPS_Top
     wire [31: 0] r1data;
     wire [ 4: 0] r2addr;
     wire [31: 0] r2data;
+    
+    wire         r1read;
+    wire         r2read;
 
     wire [31: 0] id_opr1;
     wire [31: 0] id_opr2;
@@ -127,8 +130,10 @@ module miniMIPS_Top
         .wreg       ( id_wreg   ),
         .wraddr     ( id_wraddr ),
         .br_flag    ( br_flag   ),
-        .br_addr    ( br_addr   )
+        .br_addr    ( br_addr   ),
         // .stallreq
+        .r1read     ( r1read ),
+        .r2read     ( r2read )
     );
 
     RegFile rf
@@ -141,7 +146,9 @@ module miniMIPS_Top
         .r2data     ( r2data     ),
         .wreg       ( wb_wreg_o  ),
         .wraddr     ( wb_wraddr_o), 
-        .wrdata     ( wb_wrdata  )
+        .wrdata     ( wb_wrdata  ),
+        .r1read     ( r1read ),
+        .r2read     ( r2read )
     );
 
     //ID_EX

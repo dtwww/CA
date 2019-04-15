@@ -71,6 +71,50 @@ module RegFile
               r1data <= 32'b0;
           end
         end
+        
+            // 读端口1 的读操作
+            always @ (*) begin
+               // 如果重置则读出 32'h0
+              if(rst) begin
+                  r1data <= 32'b0;
+               // 如果读0号寄存器，也只读出0
+              end else if(r1addr == 5'b0) begin
+                  r1data <= 32'b0;
+               // 当读地址与写地址相同，且写使能，且端口1读使能，则要把写入的数据直接读出来
+               //   数据前推的实现，后面会提及
+              end else if((r1addr == wraddr) && (wreg == 1) 
+                          && (r1read == 1)) begin
+                    r1data <= wrdata;
+               // 否则读取相应寄存器单元
+              end else if(r1read == 1) begin
+                  r1data <= GPR[r1addr];
+               // 如果第一个读端口不能使用时，输出0
+              end else begin
+                  r1data <= 32'b0;
+              end
+            end
+     
+            // 读端口2 的读操作
+            always @ (*) begin
+               // 如果重置则读出 32'h0
+              if(rst) begin
+                  r2data <= 32'b0;
+               // 如果读0号寄存器，也只读出0
+              end else if(r2addr == 5'b0) begin
+                  r2data <= 32'b0;
+               // 当读地址与写地址相同，且写使能，且端口2读使能，则要把写入的数据直接读出来
+               //   数据前推的实现，后面会提及
+              end else if((r2addr == wraddr) && (wreg == 1) 
+                          && (r2read == 1)) begin
+                    r2data <= wrdata;
+               // 否则读取相应寄存器单元
+              end else if(r2read == 1) begin
+                  r2data <= GPR[r2addr];
+               // 如果第二个读端口不能使用时，输出0
+              end else begin
+                  r2data <= 32'b0;
+              end
+            end
 
 endmodule
 
