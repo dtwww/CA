@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Fri Apr 12 08:35:47 2019
+# Process ID: 7940
+# Current directory: E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.runs/impl_1
+# Command line: vivado.exe -log Basys3_Top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source Basys3_Top.tcl -notrace
+# Log file: E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.runs/impl_1/Basys3_Top.vdi
+# Journal file: E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source Basys3_Top.tcl -notrace
