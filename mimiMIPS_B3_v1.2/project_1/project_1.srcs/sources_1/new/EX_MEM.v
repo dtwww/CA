@@ -32,11 +32,12 @@ module EX_MEM
     output reg  [31: 0] mem_m_addr,
     output reg  [31: 0] mem_m_dout,
     output reg          mem_wreg,
-    output reg  [ 4: 0] mem_wraddr
+    output reg  [ 4: 0] mem_wraddr,
+    input wire  [ 5: 0] stall
 );
 
     always @(posedge clk, posedge rst) begin
-        if(rst) begin
+        if(rst || (stall[3] == 1'b1 && stall[4] == 1'b0)) begin // 复位或stall[3]为1，第>=3位为0，该模块不传递数据
             mem_aluop   <= 4'h0;
             mem_alures  <= 32'b0;
             mem_m_wen   <= 1'b0;
@@ -44,8 +45,7 @@ module EX_MEM
             mem_m_dout  <= 32'b0;
             mem_wreg    <= 1'b0;
             mem_wraddr  <= 5'b0;
-        end
-        else begin
+        end else begin // 正常传递数据
             mem_aluop   <= ex_aluop;
             mem_alures  <= ex_alures;
             mem_m_wen   <= ex_m_wen;

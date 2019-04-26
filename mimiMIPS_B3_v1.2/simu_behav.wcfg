@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1267207694fs"></ZoomEndTime>
-      <Cursor1Time time="155000000fs"></Cursor1Time>
+      <ZoomEndTime time="347500001fs"></ZoomEndTime>
+      <Cursor1Time time="149500000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="272"></NameColumnWidth>
-      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+      <NameColumnWidth column_width="264"></NameColumnWidth>
+      <ValueColumnWidth column_width="93"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="56" />
+   <WVObjectSize size="61" />
    <wvobject fp_name="/simu/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -180,6 +180,10 @@
       <obj_property name="CustomSignalColor">#008000</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
+   <wvobject fp_name="/simu/test/cpu/ex/alures" type="array">
+      <obj_property name="ElementShortName">alures[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alures[31:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/simu/test/cpu/ex_opr1" type="array">
       <obj_property name="ElementShortName">ex_opr1[31:0]</obj_property>
       <obj_property name="ObjectShortName">ex_opr1[31:0]</obj_property>
@@ -249,6 +253,19 @@
       <obj_property name="ObjectShortName">mem_wreg</obj_property>
       <obj_property name="CustomSignalColor">#FFA500</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/stall" type="array">
+      <obj_property name="ElementShortName">stall[5:1]</obj_property>
+      <obj_property name="ObjectShortName">stall[5:1]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/stallreq" type="logic">
+      <obj_property name="ElementShortName">stallreq</obj_property>
+      <obj_property name="ObjectShortName">stallreq</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/stallreq_ex" type="logic">
+      <obj_property name="ElementShortName">stallreq_ex</obj_property>
+      <obj_property name="ObjectShortName">stallreq_ex</obj_property>
    </wvobject>
    <wvobject fp_name="/simu/test/cpu/mem_wraddr" type="array">
       <obj_property name="ElementShortName">mem_wraddr[4:0]</obj_property>
@@ -325,5 +342,9 @@
    <wvobject fp_name="/simu/test/ram/scan" type="array">
       <obj_property name="ElementShortName">scan[3:0]</obj_property>
       <obj_property name="ObjectShortName">scan[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/simu/test/cpu/rf/GPR" type="array">
+      <obj_property name="ElementShortName">GPR[31:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">GPR[31:0][31:0]</obj_property>
    </wvobject>
 </wave_config>

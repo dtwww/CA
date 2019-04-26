@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="inst_rom_synth_1" LaunchDir="E:/Desktop/CA/mimiMIPS_B3_v1.2/project_2/project_1.runs/inst_rom_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+</Runs>
+

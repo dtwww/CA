@@ -20,7 +20,8 @@ module PC
     input  wire         rst, // 复位
     input  wire         br_flag,    // branch flags
     input  wire [31: 0] br_addr,    // branch address
-    output reg  [31: 0] pc // 要读取的指令地址
+    output reg  [31: 0] pc, // 要读取的指令地址
+    input  wire [ 5: 0] stall
 );
 
     always @(posedge clk, posedge rst) begin
@@ -28,8 +29,11 @@ module PC
             pc   <= 32'b0;
         end
         else begin
-            if(br_flag) pc <= br_addr; // 分支 pc赋值为分支指令地址
-            else pc <= pc + 32'd4; // pc + 4
+            if(br_flag) begin
+            pc <= br_addr; // 分支 pc赋值为分支指令地址
+            end else if(stall[0] == 1'b0) begin // stall信号第0位连接PC模块
+                pc <= pc + 32'd4; // pc + 4
+            end
         end
     end
 

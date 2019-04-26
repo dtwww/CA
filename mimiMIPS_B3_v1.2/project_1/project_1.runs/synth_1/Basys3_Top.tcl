@@ -17,36 +17,40 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.cache/wt [current_project]
-set_property parent.project_path E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.xpr [current_project]
+set_property webtalk.parent_dir E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.cache/wt [current_project]
+set_property parent.project_path E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
+set_property ip_output_repo e:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-add_files E:/vivado/mimiMIPS_B3_v1.2/rom.coe
+add_files E:/Desktop/CA/mimiMIPS_B3_v1.2/rom.coe
+add_files E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/rom.coe
 read_verilog -library xil_defaultlib {
-  E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/defines.v
-  E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/EX.v
-  E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/EX_MEM.v
-  E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/ID.v
-  E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/ID_EX.v
-  E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/IF_ID.v
-  E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/MEM.V
-  E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/MEM_WB.v
-  E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/PC.v
-  E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/RegFile.v
-  E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/WB.v
-  E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/confreg.v
-  E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/miniMIPS_Top.v
-  E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/Basys3_Top.v
+  E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/CTRL.v
+  E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/defines.v
+  E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/EX.v
+  E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/EX_MEM.v
+  E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/ID.v
+  E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/ID_EX.v
+  E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/IF_ID.v
+  E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/MEM.V
+  E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/MEM_WB.v
+  E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/PC.v
+  E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/RegFile.v
+  E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/WB.v
+  E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/confreg.v
+  E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/miniMIPS_Top.v
+  E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/Basys3_Top.v
 }
-read_ip -quiet E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/ip/inst_rom/inst_rom.xci
-set_property used_in_implementation false [get_files -all e:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/ip/inst_rom/inst_rom_ooc.xdc]
+read_ip -quiet E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/ip/inst_rom/inst_rom.xci
+set_property used_in_implementation false [get_files -all e:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/ip/inst_rom/inst_rom_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -56,8 +60,8 @@ set_property used_in_implementation false [get_files -all e:/vivado/mimiMIPS_B3_
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc E:/vivado/mimiMIPS_B3_v1.2/Basys-3.xdc
-set_property used_in_implementation false [get_files E:/vivado/mimiMIPS_B3_v1.2/Basys-3.xdc]
+read_xdc E:/Desktop/CA/mimiMIPS_B3_v1.2/Basys-3.xdc
+set_property used_in_implementation false [get_files E:/Desktop/CA/mimiMIPS_B3_v1.2/Basys-3.xdc]
 
 set_param ips.enableIPCacheLiteLoad 0
 close [open __synthesis_is_running__ w]

@@ -65,6 +65,10 @@ module miniMIPS_Top
     wire [31: 0] ex_m_addr;
     wire [31: 0] ex_m_dout;
     
+    //wire ex_wreg_i;
+    //wire [ 4: 0] ex_wd_i;
+    //wire [31: 0] ex_wdata_i;
+    
     wire [ 3: 0] mem_aluop;
     wire [31: 0] mem_alures;
     wire         mem_wreg;
@@ -78,6 +82,10 @@ module miniMIPS_Top
     wire [31: 0] mem_alures_o;
     wire         mem_wreg_o;
     wire [ 4: 0] mem_wraddr_o;
+    
+    //wire mem_wreg_i;
+    //wire [ 4: 0] mem_wd_i;
+   // wire [31: 0] mem_wdata_i;
 
     wire [ 3: 0] wb_aluop;
     wire [31: 0] wb_alures;
@@ -88,6 +96,14 @@ module miniMIPS_Top
 
     wire         wb_wreg_o;
     wire [ 4: 0] wb_wraddr_o;
+    
+    //new
+    wire         stallreq;
+    wire         stallreq_ex;
+    wire [ 5: 1] stall;
+    
+    //ex请求流水线暂停
+    assign stallreq_ex = (mem_aluop == `ALU_LW) ? 1'b1: 1'b0;
 
     // IF stage
     PC pc
@@ -96,7 +112,8 @@ module miniMIPS_Top
         .rst        ( rst       ),
         .br_flag    ( br_flag   ),
         .br_addr    ( br_addr   ),
-        .pc         ( if_pc     )
+        .pc         ( if_pc     ),
+        .stall      ( stall     )
     );
 
     assign inst_addr = if_pc;
@@ -111,7 +128,8 @@ module miniMIPS_Top
         .if_inst    ( if_inst   ),
 
         .id_pc      ( id_pc     ),
-        .id_inst    ( id_inst   )
+        .id_inst    ( id_inst   ),
+        .stall      ( stall     )
     );
 
     // ID stage
@@ -132,8 +150,25 @@ module miniMIPS_Top
         .br_flag    ( br_flag   ),
         .br_addr    ( br_addr   ),
         // .stallreq
-        .r1read     ( r1read ),
-        .r2read     ( r2read )
+        
+        .ex_wreg_i  ( ex_wreg   ),
+        .ex_wd_i    ( ex_wraddr ),
+        .ex_wdata_i ( ex_alures ),
+        .mem_wreg_i ( mem_wreg  ),
+        .mem_wd_i   ( mem_wraddr),
+        .mem_wdata_i( mem_alures),
+        
+        .ex_aluop_i ( ex_aluop  ),
+        .mem_aluop_i( mem_aluop ),
+        .stallreq   ( stallreq  )
+    );
+    
+    //new
+    CTRL ct(
+        .rst             (   rst     ),
+        .stallreq_from_id( stallreq  ),
+        .stallreq_from_ex(stallreq_ex),
+        .stall           (   stall   )
     );
 
     RegFile rf
@@ -146,9 +181,7 @@ module miniMIPS_Top
         .r2data     ( r2data     ),
         .wreg       ( wb_wreg_o  ),
         .wraddr     ( wb_wraddr_o), 
-        .wrdata     ( wb_wrdata  ),
-        .r1read     ( r1read ),
-        .r2read     ( r2read )
+        .wrdata     ( wb_wrdata  )
     );
 
     //ID_EX
@@ -170,7 +203,8 @@ module miniMIPS_Top
         .ex_opr2    ( ex_opr2   ),
         .ex_offset  ( ex_offset ),
         .ex_wreg    ( ex_wreg   ),
-        .ex_wraddr  ( ex_wraddr )
+        .ex_wraddr  ( ex_wraddr ),
+        .stall      ( stall     )
     );
 
     //EX stage
@@ -206,7 +240,8 @@ module miniMIPS_Top
         .mem_m_addr ( mem_m_addr    ),
         .mem_m_dout ( mem_m_dout    ),
         .mem_wreg   ( mem_wreg      ),
-        .mem_wraddr ( mem_wraddr    )
+        .mem_wraddr ( mem_wraddr    ),
+        .stall      ( stall         )
     );
 
     //MEM stage
@@ -249,7 +284,8 @@ module miniMIPS_Top
         .wb_alures  ( wb_alures     ),
         .wb_m_din   ( wb_m_din      ),
         .wb_wreg    ( wb_wreg       ),
-        .wb_wraddr  ( wb_wraddr     )
+        .wb_wraddr  ( wb_wraddr     ),
+        .stall      ( stall         )
     );
 
     //WB stage

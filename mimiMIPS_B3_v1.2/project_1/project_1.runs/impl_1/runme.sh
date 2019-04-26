@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/vivado/mimiMIPS_B3_v1.2/project_1/project_1.runs/impl_1'
+HD_PWD='E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

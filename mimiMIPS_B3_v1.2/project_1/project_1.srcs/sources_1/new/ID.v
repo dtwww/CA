@@ -14,6 +14,7 @@
 // Additional Comments:
 // 
 //------------------------------------------------------------------------------
+//实现了相邻两条及相隔一条的数据前推及请求流水线暂停
 `include "defines.v"
 
 module ID
@@ -38,17 +39,20 @@ module ID
 
     output wire         stallreq,    // use to requre the pipeline stall, you can use it
     
-    output reg r1read, // 寄存器1读使能
-    output reg r2read,
+    //output reg r1read, // 寄存器1读使能
+    //output reg r2read,
     
-    //ex阶段推过来饿数据
+    //ex阶段推过来饿数据 ex->id 相邻两条数据前推
     input wire ex_wreg_i, //处于执行阶段的指令是否要写目的寄存器
     input wire [ 4: 0] ex_wd_i, //处于执行阶段的指令要写的目的寄存器地址
     input wire [31: 0] ex_wdata_i, //处于执行阶段的指令要写入目的寄存器的数据
-    //men阶段推过来的数据
+    //men阶段推过来的数据 mem->id 相邻两条数据前推
     input wire mem_wreg_i, //处于执行阶段的指令是否要写目的寄存器
     input wire [ 4: 0] mem_wd_i, //处于执行阶段的指令要写的目的寄存器地址
-    input wire [31: 0] mem_wdata_i //处于执行阶段的指令要写入目的寄存器的数据
+    input wire [31: 0] mem_wdata_i, //处于执行阶段的指令要写入目的寄存器的数据
+    
+    input  wire [ 3: 0] ex_aluop_i,
+    input  wire [ 3: 0] mem_aluop_i
 );
 
     wire [ 5: 0] opcode    = inst[31:26];
@@ -70,43 +74,40 @@ module ID
     
 
     reg  [31: 0] ext_imme;
-//    reg          r1read; // 寄存器1读使能
-//    reg          r2read;
+    reg          r1read; // 寄存器1读使能
+    reg          r2read;
 
     assign offset = sign_ext;
 //    assign opr1 = r1read ? r1data : ext_imme; // 若读使能，则操作数为寄存器1的数据，否则为立即数
 //    assign opr2 = r2read ? r2data : ext_imme;
 
-// 读端口1
-// 对ID/EX模块输出的数据在之前的基础上增加了两种情况：
+    // 上一条指令（从ex来）是Load指令，则请求流水线暂停
+    assign stallreq = (ex_aluop_i == `ALU_LW) ? 1'b1: 1'b0;
+
+    // 读端口1
 	always @ (*) begin
-        // 如果（前面的指令）EX阶段要写入的寄存器的地址 == （后面的指令）ID阶段要读取的寄存器的地址
-		if((r1read == 1'b1) && (ex_wreg_i == 1'b1) 
-								&& (ex_wd_i == r1addr)) begin
-			opr1 <= ex_wdata_i; 
-            // 如果（前面的指令）MEM阶段要写入的寄存器的地址 == （后面的指令）ID阶段要读取的寄存器的地址
-		end else if((r1read == 1'b1) && (mem_wreg_i == 1'b1) 
-								&& (mem_wd_i == r1addr)) begin
-			opr1 <= mem_wdata_i; 			
-	  end else if(r1read == 1'b1) begin
-	  	opr1 <= r1data;
+        // 如果（前面的指令）EX阶段要写入的寄存器的地址 == （后面的指令）ID阶段要读取的寄存器的地址（相邻）
+		if((r1read == 1'b1) && (ex_wreg_i == 1'b1) && (ex_wd_i == r1addr)) begin
+			opr1 <= ex_wdata_i; // EX段的数据直接送到ID段
+        // 如果（前面的指令）MEM阶段要写入的寄存器的地址 == （后面的指令）ID阶段要读取的寄存器的地址（相隔一条）
+		end else if((r1read == 1'b1) && (mem_wreg_i == 1'b1) && (mem_wd_i == r1addr)) begin
+			opr1 <= mem_wdata_i; // MEM段的数据直接送到ID段			
+	  end else if(r1read == 1'b1) begin 
+	  	opr1 <= r1data; // opr1 = 从rf模块第一个读寄存器端口读入的数据
 	  end else if(r1read == 1'b0) begin
-	  	opr1 <= ext_imme;
+	  	opr1 <= ext_imme; // opr1 = 立即数
 	  end else begin
 	    opr1 <= 32'b0;
 	  end
 	end
 	
-// 读端口2
-// 对ID/EX模块输出的数据在之前的基础上增加了两种情况：
+    // 读端口2
     always @ (*) begin
         // 如果（前面的指令）EX阶段要写入的寄存器的地址 == （后面的指令）ID阶段要读取的寄存器的地址
-        if((r2read == 1'b1) && (ex_wreg_i == 1'b1) 
-                                && (ex_wd_i == r2addr)) begin
+        if((r2read == 1'b1) && (ex_wreg_i == 1'b1) && (ex_wd_i == r2addr)) begin
             opr2 <= ex_wdata_i; 
-            // 如果（前面的指令）MEM阶段要写入的寄存器的地址 == （后面的指令）ID阶段要读取的寄存器的地址
-        end else if((r2read == 1'b1) && (mem_wreg_i == 1'b1) 
-                                && (mem_wd_i == r2addr)) begin
+        // 如果（前面的指令）MEM阶段要写入的寄存器的地址 == （后面的指令）ID阶段要读取的寄存器的地址
+        end else if((r2read == 1'b1) && (mem_wreg_i == 1'b1) && (mem_wd_i == r2addr)) begin
             opr2 <= mem_wdata_i;             
       end else if(r2read == 1'b1) begin
           opr2 <= r2data;

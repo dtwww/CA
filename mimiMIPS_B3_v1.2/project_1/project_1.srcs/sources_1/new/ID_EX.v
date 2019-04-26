@@ -33,11 +33,12 @@ module ID_EX
     output reg  [31: 0] ex_opr2,    // operator 2, to EX seg
     output reg  [31: 0] ex_offset,
     output reg          ex_wreg,    // reg write enable signal, to EX seg
-    output reg  [ 4: 0] ex_wraddr
+    output reg  [ 4: 0] ex_wraddr,
+    input wire  [ 5: 0] stall
 );
 
     always @(posedge clk, posedge rst) begin
-        if(rst) begin
+        if(rst || (stall[2] == 1'b1 && stall[3] == 1'b0)) begin // 复位或stall[2]为1，第>=3位为0，该模块不传递数据
             ex_pc      <= 32'b0;
             ex_aluop   <= 4'h0;
             ex_opr1    <= 32'b0;
@@ -45,8 +46,16 @@ module ID_EX
             ex_offset  <= 32'b0;
             ex_wreg    <= 1'b0;
             ex_wraddr  <= 5'b0;
-        end
-        else begin
+//        end else if(stall[2] == 1'b1 && stall[3] == 1'b0) begin
+//            ex_pc      <= 32'b0;
+//            ex_aluop   <= 4'h0;
+//            ex_opr1    <= 32'b0;
+//            ex_opr2    <= 32'b0;
+//            ex_offset  <= 32'b0;
+//            ex_wreg    <= 1'b0;
+//            ex_wraddr  <= 5'b0;
+        //end else if (stall[2] == 1'b0) begin //正常传递数据
+        end else begin // 正常传递数据
             ex_pc      <= id_pc;
             ex_aluop   <= id_aluop;
             ex_opr1    <= id_opr1;
