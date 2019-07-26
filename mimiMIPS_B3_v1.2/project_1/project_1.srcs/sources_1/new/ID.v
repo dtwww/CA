@@ -46,10 +46,10 @@ module ID
     input wire ex_wreg_i, //处于执行阶段的指令是否要写目的寄存器
     input wire [ 4: 0] ex_wd_i, //处于执行阶段的指令要写的目的寄存器地址
     input wire [31: 0] ex_wdata_i, //处于执行阶段的指令要写入目的寄存器的数据
-    //men阶段推过来的数据 mem->id 相邻两条数据前推
-    input wire mem_wreg_i, //处于执行阶段的指令是否要写目的寄存器
-    input wire [ 4: 0] mem_wd_i, //处于执行阶段的指令要写的目的寄存器地址
-    input wire [31: 0] mem_wdata_i, //处于执行阶段的指令要写入目的寄存器的数据
+    //men阶段推过来的数据 mem->id 相隔一条数据前推
+    input wire mem_wreg_i, //处于访存阶段的指令是否要写目的寄存器
+    input wire [ 4: 0] mem_wd_i, //处于访存阶段的指令要写的目的寄存器地址
+    input wire [31: 0] mem_wdata_i, //处于访存阶段的指令要写入目的寄存器的数据
     
     input  wire [ 3: 0] ex_aluop_i,
     input  wire [ 3: 0] mem_aluop_i

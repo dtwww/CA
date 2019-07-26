@@ -25,16 +25,23 @@ module PC
 );
 
     always @(posedge clk, posedge rst) begin
-        if(rst) begin // 复位信号上升沿
+        if(rst) begin // 复位
             pc   <= 32'b0;
         end
         else begin
             if(br_flag) begin
-            pc <= br_addr; // 分支 pc赋值为分支指令地址
+                pc <= br_addr; // 分支 pc赋值为分支指令地址
             end else if(stall[0] == 1'b0) begin // stall信号第0位连接PC模块
                 pc <= pc + 32'd4; // pc + 4
             end
         end
+//        else begin
+//            if(br_flag) begin
+//                pc <= br_addr; // 分支 pc赋值为分支指令地址
+//            end else begin
+//                pc <= pc + 32'd4; // pc + 4
+//            end
+//        end
     end
 
 endmodule

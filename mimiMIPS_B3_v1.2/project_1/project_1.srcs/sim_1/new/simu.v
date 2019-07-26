@@ -46,9 +46,9 @@ module simu();
 
         #100
         reset  = 0;
-        switch = 16'd2; //2*4+3=b
+        switch = 16'd2;
         #100
-        switch = 16'd3; //3*4+3=f
+        switch = 16'd3;
     end
 
     always #5 clk = ~clk;

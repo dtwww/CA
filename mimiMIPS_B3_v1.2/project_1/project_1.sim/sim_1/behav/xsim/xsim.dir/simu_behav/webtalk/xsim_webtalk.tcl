@@ -1,6 +1,6 @@
-webtalk_init -webtalk_dir E:/Desktop/CA/mimiMIPS_B3_v1.2/project_2/project_1.sim/sim_1/behav/xsim/xsim.dir/simu_behav/webtalk/
+webtalk_init -webtalk_dir E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.sim/sim_1/behav/xsim/xsim.dir/simu_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Wed Apr 24 11:50:57 2019" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Sat Apr 27 22:27:44 2019" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2018.2 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2258646" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "WIN64" -context "software_version_and_target_device"
@@ -14,7 +14,7 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "b9bc853a-d5e0-47d7-80d4-fcd6080824cf" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "5f2e83d54b2a427db6a734518e95556f" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "33" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "64" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Microsoft Windows 8 or later , 64-bit" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "major release  (build 9200)" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i7-5500U CPU @ 2.40GHz" -context "user_environment"
@@ -26,7 +26,7 @@ webtalk_add_data -client xsim -key Command -value "xsim" -context "xsim\\command
 webtalk_add_data -client xsim -key trace_waveform -value "true" -context "xsim\\usage"
 webtalk_add_data -client xsim -key runtime -value "1 us" -context "xsim\\usage"
 webtalk_add_data -client xsim -key iteration -value "1" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Time -value "0.11_sec" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Memory -value "6488_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 656712353 -regid "" -xml E:/Desktop/CA/mimiMIPS_B3_v1.2/project_2/project_1.sim/sim_1/behav/xsim/xsim.dir/simu_behav/webtalk/usage_statistics_ext_xsim.xml -html E:/Desktop/CA/mimiMIPS_B3_v1.2/project_2/project_1.sim/sim_1/behav/xsim/xsim.dir/simu_behav/webtalk/usage_statistics_ext_xsim.html -wdm E:/Desktop/CA/mimiMIPS_B3_v1.2/project_2/project_1.sim/sim_1/behav/xsim/xsim.dir/simu_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_add_data -client xsim -key Simulation_Time -value "0.06_sec" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Simulation_Memory -value "6500_KB" -context "xsim\\usage"
+webtalk_transmit -clientid 806379927 -regid "" -xml E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.sim/sim_1/behav/xsim/xsim.dir/simu_behav/webtalk/usage_statistics_ext_xsim.xml -html E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.sim/sim_1/behav/xsim/xsim.dir/simu_behav/webtalk/usage_statistics_ext_xsim.html -wdm E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.sim/sim_1/behav/xsim/xsim.dir/simu_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate

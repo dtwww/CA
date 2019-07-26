@@ -14,9 +14,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 8324 
+INFO: Helper process launched with PID 7656 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 377.707 ; gain = 98.074
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 377.820 ; gain = 98.332
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'Basys3_Top' [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/Basys3_Top.v:17]
 INFO: [Synth 8-6157] synthesizing module 'miniMIPS_Top' [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/miniMIPS_Top.v:18]
@@ -27,8 +27,8 @@ INFO: [Synth 8-6157] synthesizing module 'IF_ID' [E:/Desktop/CA/mimiMIPS_B3_v1.2
 INFO: [Synth 8-6155] done synthesizing module 'IF_ID' (2#1) [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/IF_ID.v:17]
 WARNING: [Synth 8-689] width (5) of port connection 'stall' does not match port width (6) of module 'IF_ID' [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/miniMIPS_Top.v:132]
 INFO: [Synth 8-6157] synthesizing module 'ID' [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/ID.v:20]
-INFO: [Synth 8-155] case statement is not full and has no default [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/ID.v:139]
-INFO: [Synth 8-155] case statement is not full and has no default [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/ID.v:137]
+INFO: [Synth 8-155] case statement is not full and has no default [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/ID.v:135]
+INFO: [Synth 8-155] case statement is not full and has no default [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/ID.v:133]
 INFO: [Synth 8-6155] done synthesizing module 'ID' (3#1) [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/ID.v:20]
 INFO: [Synth 8-6157] synthesizing module 'CTRL' [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/CTRL.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'CTRL' (4#1) [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/CTRL.v:23]
@@ -52,8 +52,8 @@ WARNING: [Synth 8-689] width (5) of port connection 'stall' does not match port 
 INFO: [Synth 8-6157] synthesizing module 'WB' [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/WB.v:19]
 INFO: [Synth 8-6155] done synthesizing module 'WB' (11#1) [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/WB.v:19]
 INFO: [Synth 8-6155] done synthesizing module 'miniMIPS_Top' (12#1) [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/miniMIPS_Top.v:18]
-INFO: [Synth 8-6157] synthesizing module 'inst_rom' [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.runs/synth_1/.Xil/Vivado-9244-DESKTOP-D4VK0AO/realtime/inst_rom_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'inst_rom' (13#1) [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.runs/synth_1/.Xil/Vivado-9244-DESKTOP-D4VK0AO/realtime/inst_rom_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'inst_rom' [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.runs/synth_1/.Xil/Vivado-13008-DESKTOP-D4VK0AO/realtime/inst_rom_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'inst_rom' (13#1) [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.runs/synth_1/.Xil/Vivado-13008-DESKTOP-D4VK0AO/realtime/inst_rom_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'confreg' [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/confreg.v:17]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/confreg.v:36]
 INFO: [Synth 8-155] case statement is not full and has no default [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/confreg.v:54]
@@ -113,7 +113,7 @@ WARNING: [Synth 8-3331] design PC has unconnected port stall[3]
 WARNING: [Synth 8-3331] design PC has unconnected port stall[2]
 WARNING: [Synth 8-3331] design PC has unconnected port stall[1]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 431.559 ; gain = 151.926
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 431.078 ; gain = 151.590
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -126,10 +126,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 431.559 ; gain = 151.926
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 431.078 ; gain = 151.590
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 431.559 ; gain = 151.926
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 431.078 ; gain = 151.590
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -147,23 +147,23 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 774.051 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.034 . Memory (MB): peak = 774.086 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:23 . Memory (MB): peak = 774.051 ; gain = 494.418
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 774.086 ; gain = 494.598
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:23 . Memory (MB): peak = 774.051 ; gain = 494.418
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 774.086 ; gain = 494.598
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for irom. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:23 . Memory (MB): peak = 774.051 ; gain = 494.418
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 774.086 ; gain = 494.598
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5587] ROM size for "r1read" is below threshold of ROM address width. It will be mapped to LUTs
 INFO: [Synth 8-5546] ROM "r1read" won't be mapped to RAM because it is too sparse
@@ -180,7 +180,7 @@ INFO: [Synth 8-5544] ROM "led" won't be mapped to Block RAM because address size
 INFO: [Synth 8-5544] ROM "num" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 WARNING: [Synth 8-327] inferring latch for variable 'data_din_reg' [E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.srcs/sources_1/new/confreg.v:37]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:24 . Memory (MB): peak = 774.051 ; gain = 494.418
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 774.086 ; gain = 494.598
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -207,7 +207,7 @@ Detailed RTL Component Info :
 +---RAMs : 
 	             1024 Bit         RAMs := 1     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 30    
+	   2 Input     32 Bit        Muxes := 28    
 	   5 Input     32 Bit        Muxes := 2     
 	   3 Input     32 Bit        Muxes := 2     
 	   4 Input     32 Bit        Muxes := 1     
@@ -219,7 +219,7 @@ Detailed RTL Component Info :
 	   4 Input      4 Bit        Muxes := 2     
 	  17 Input      3 Bit        Muxes := 2     
 	   2 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 18    
+	   2 Input      1 Bit        Muxes := 12    
 	  16 Input      1 Bit        Muxes := 3     
 	  17 Input      1 Bit        Muxes := 3     
 	   3 Input      1 Bit        Muxes := 1     
@@ -272,7 +272,7 @@ Detailed RTL Component Info :
 +---RAMs : 
 	             1024 Bit         RAMs := 1     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 6     
+	   2 Input     32 Bit        Muxes := 4     
 Module ID_EX 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -284,7 +284,6 @@ Detailed RTL Component Info :
 	   2 Input     32 Bit        Muxes := 4     
 	   2 Input      5 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 2     
 Module EX 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -308,7 +307,6 @@ Detailed RTL Component Info :
 	   2 Input     32 Bit        Muxes := 3     
 	   2 Input      5 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 2     
 Module MEM_WB 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -320,7 +318,6 @@ Detailed RTL Component Info :
 	   2 Input     32 Bit        Muxes := 2     
 	   2 Input      5 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 2     
 Module WB 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -361,18 +358,9 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
 INFO: [Synth 8-5587] ROM size for "aluop" is below threshold of ROM address width. It will be mapped to LUTs
-WARNING: [Synth 8-3331] design MEM_WB has unconnected port stall[3]
-WARNING: [Synth 8-3331] design MEM_WB has unconnected port stall[2]
-WARNING: [Synth 8-3331] design MEM_WB has unconnected port stall[1]
-WARNING: [Synth 8-3331] design MEM_WB has unconnected port stall[0]
 WARNING: [Synth 8-3331] design EX_MEM has unconnected port stall[5]
-WARNING: [Synth 8-3331] design EX_MEM has unconnected port stall[2]
-WARNING: [Synth 8-3331] design EX_MEM has unconnected port stall[1]
-WARNING: [Synth 8-3331] design EX_MEM has unconnected port stall[0]
 WARNING: [Synth 8-3331] design ID_EX has unconnected port stall[5]
 WARNING: [Synth 8-3331] design ID_EX has unconnected port stall[4]
-WARNING: [Synth 8-3331] design ID_EX has unconnected port stall[1]
-WARNING: [Synth 8-3331] design ID_EX has unconnected port stall[0]
 WARNING: [Synth 8-3331] design ID has unconnected port mem_aluop_i[3]
 WARNING: [Synth 8-3331] design ID has unconnected port mem_aluop_i[2]
 WARNING: [Synth 8-3331] design ID has unconnected port mem_aluop_i[1]
@@ -441,7 +429,7 @@ WARNING: [Synth 8-3332] Sequential element (cpu/ex_mem/mem_m_addr_reg[6]) is unu
 WARNING: [Synth 8-3332] Sequential element (cpu/ex_mem/mem_m_addr_reg[1]) is unused and will be removed from module Basys3_Top.
 WARNING: [Synth 8-3332] Sequential element (cpu/ex_mem/mem_m_addr_reg[0]) is unused and will be removed from module Basys3_Top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:36 . Memory (MB): peak = 774.051 ; gain = 494.418
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:32 . Memory (MB): peak = 774.086 ; gain = 494.598
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -468,13 +456,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:51 . Memory (MB): peak = 774.051 ; gain = 494.418
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:44 . Memory (MB): peak = 774.086 ; gain = 494.598
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:53 ; elapsed = 00:01:03 . Memory (MB): peak = 895.277 ; gain = 615.645
+Finished Timing Optimization : Time (s): cpu = 00:00:48 ; elapsed = 00:00:54 . Memory (MB): peak = 884.188 ; gain = 604.699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -500,7 +488,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:54 ; elapsed = 00:01:04 . Memory (MB): peak = 898.023 ; gain = 618.391
+Finished Technology Mapping : Time (s): cpu = 00:00:49 ; elapsed = 00:00:56 . Memory (MB): peak = 885.195 ; gain = 605.707
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -524,7 +512,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:55 ; elapsed = 00:01:05 . Memory (MB): peak = 898.023 ; gain = 618.391
+Finished IO Insertion : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 885.195 ; gain = 605.707
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -537,7 +525,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:55 ; elapsed = 00:01:05 . Memory (MB): peak = 898.023 ; gain = 618.391
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 885.195 ; gain = 605.707
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -549,25 +537,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:56 ; elapsed = 00:01:06 . Memory (MB): peak = 898.023 ; gain = 618.391
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 885.195 ; gain = 605.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:56 ; elapsed = 00:01:06 . Memory (MB): peak = 898.023 ; gain = 618.391
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 885.195 ; gain = 605.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:56 ; elapsed = 00:01:06 . Memory (MB): peak = 898.023 ; gain = 618.391
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 885.195 ; gain = 605.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:56 ; elapsed = 00:01:06 . Memory (MB): peak = 898.023 ; gain = 618.391
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 885.195 ; gain = 605.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -588,14 +576,14 @@ Report Cell Usage:
 |2     |BUFG     |     2|
 |3     |CARRY4   |    77|
 |4     |LUT1     |     5|
-|5     |LUT2     |   268|
-|6     |LUT3     |    46|
-|7     |LUT4     |   166|
-|8     |LUT5     |   168|
-|9     |LUT6     |   611|
+|5     |LUT2     |   157|
+|6     |LUT3     |    49|
+|7     |LUT4     |   157|
+|8     |LUT5     |   185|
+|9     |LUT6     |   697|
 |10    |MUXF7    |     6|
 |11    |RAM32M   |    12|
-|12    |FDCE     |   438|
+|12    |FDCE     |   437|
 |13    |FDPE     |     4|
 |14    |LD       |    32|
 |15    |IBUF     |    22|
@@ -606,24 +594,24 @@ Report Instance Areas:
 +------+-----------+-------------+------+
 |      |Instance   |Module       |Cells |
 +------+-----------+-------------+------+
-|1     |top        |             |  1917|
-|2     |  cpu      |miniMIPS_Top |  1650|
-|3     |    ex     |EX           |    30|
-|4     |    ex_mem |EX_MEM       |   178|
+|1     |top        |             |  1902|
+|2     |  cpu      |miniMIPS_Top |  1635|
+|3     |    ex     |EX           |    26|
+|4     |    ex_mem |EX_MEM       |   132|
 |5     |    id     |ID           |    47|
-|6     |    id_ex  |ID_EX        |   749|
-|7     |    if_id  |IF_ID        |   421|
-|8     |    mem_wb |MEM_WB       |   172|
+|6     |    id_ex  |ID_EX        |   868|
+|7     |    if_id  |IF_ID        |   342|
+|8     |    mem_wb |MEM_WB       |   167|
 |9     |    pc     |PC           |    41|
 |10    |    rf     |RegFile      |    12|
 |11    |  ram      |confreg      |   183|
 +------+-----------+-------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:56 ; elapsed = 00:01:06 . Memory (MB): peak = 898.023 ; gain = 618.391
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 885.195 ; gain = 605.707
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 80 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:43 ; elapsed = 00:00:54 . Memory (MB): peak = 898.023 ; gain = 275.898
-Synthesis Optimization Complete : Time (s): cpu = 00:00:56 ; elapsed = 00:01:06 . Memory (MB): peak = 898.023 ; gain = 618.391
+Synthesis finished with 0 errors, 0 critical warnings and 71 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:39 ; elapsed = 00:00:48 . Memory (MB): peak = 885.195 ; gain = 262.699
+Synthesis Optimization Complete : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 885.195 ; gain = 605.707
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 149 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -635,11 +623,11 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 12 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-61 Infos, 139 Warnings, 0 Critical Warnings and 0 Errors encountered.
+61 Infos, 130 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:59 ; elapsed = 00:01:10 . Memory (MB): peak = 898.023 ; gain = 629.863
+synth_design: Time (s): cpu = 00:00:55 ; elapsed = 00:01:03 . Memory (MB): peak = 885.195 ; gain = 617.176
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'E:/Desktop/CA/mimiMIPS_B3_v1.2/project_1/project_1.runs/synth_1/Basys3_Top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Basys3_Top_utilization_synth.rpt -pb Basys3_Top_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.052 . Memory (MB): peak = 898.023 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Thu Apr 25 09:14:51 2019...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.128 . Memory (MB): peak = 885.195 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 27 21:23:03 2019...
